@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body
+{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: #fff;
+
+    background:
+    {
+        color: #224941;
+        image: url(../../img/bg.jpg);
+        position: center;
+        repeat: no-repeat;
+        size: cover;
+    }
+}
+
+.main-title
+{
+    position: absolute;
+    top: 3%;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 2.45rem;
+    font-weight: 500;
+}
+
+.container
+{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1);
+
+    &.grow   { animation: grow 3000ms linear forwards }
+    &.shrink { animation: shrink 3000ms linear forwards }
+
+    .circle
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #010f1c;
+        border-radius: 50%;
+        z-index: -1;
+    }
+
+    #text
+    {
+        text-transform: capitalize;
+        letter-spacing: 1px;
+        font-size: 1.125rem;
+    }
+
+    .pointer-container
+    {
+        position: absolute;
+        top: -40px;
+        left: 140px;
+        width: 20px;
+        height: 190px;
+        animation: rotate 7500ms linear forwards infinite;
+        transform-origin: bottom center;
+
+        .pointer
+        {
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+    }
+
+    .gradient-circle
+    {
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        width: 320px;
+        height: 320px;
+        background-image: conic-gradient(
+            #55b7a4 0%,
+            #4ca493 40%,
+            #fff 40%,
+            #fff 60%,
+            #336d62 60%,
+            #2a5b52 100%
+        );
+        border-radius: 50%;
+        z-index: -2;
+    }
+}
+
+
+/* animations */
+@keyframes rotate
+{
+    from { transform: rotate(0deg) }
+    to   { transform: rotate(360deg) }
+}
+
+@keyframes grow
+{
+    from { transform: scale(1) }
+    to   { transform: scale(1.2) }
+}
+
+@keyframes shrink
+{
+    from { transform: scale(1.2) }
+    to   { transform: scale(1) }
+}
